@@ -4,32 +4,47 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity 
+  TouchableOpacity
 } from 'react-native';
 
-export default class Logo extends Component<{}> {
+export default class Logo extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: "",
+      password: ""
+    }
+  }
+
+  loginClick = () => {
+    this.props.onData(this.state.username, this.state.password);
+  }
 
 	render(){
 		return(
 			<View style={styles.container}>
-          <TextInput style={styles.inputBox} 
-              underlineColorAndroid='rgba(0,0,0,0)' 
+          <TextInput style={styles.inputBox}
+              underlineColorAndroid='rgba(0,0,0,0)'
               placeholder="Email"
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="email-address"
               onSubmitEditing={()=> this.password.focus()}
+              onChangeText={(text)=>{this.setState({username: text})}}
               />
-          <TextInput style={styles.inputBox} 
-              underlineColorAndroid='rgba(0,0,0,0)' 
+          <TextInput style={styles.inputBox}
+              underlineColorAndroid='rgba(0,0,0,0)'
               placeholder="Password"
               secureTextEntry={true}
               placeholderTextColor = "#ffffff"
               ref={(input) => this.password = input}
-              />  
-           <TouchableOpacity style={styles.button}>
+              onChangeText={(text) =>{this.setState({password: text})}}
+              />
+           <TouchableOpacity onPress={this.loginClick} style={styles.button}>
              <Text style={styles.buttonText}>{this.props.type}</Text>
-           </TouchableOpacity>     
+           </TouchableOpacity>
   		</View>
 			)
 	}
@@ -64,5 +79,5 @@ const styles = StyleSheet.create({
     color:'#ffffff',
     textAlign:'center'
   }
-  
+
 });

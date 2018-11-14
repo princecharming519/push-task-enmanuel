@@ -12,22 +12,30 @@ import Form from '../components/Form';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class Login extends Component<{}> {
+export default class Login extends Component {
 
 	signup() {
 		Actions.signup()
-	}
+  }
+
+  Login = (username, password) => {
+    console.log('username--home==>', username);
+    console.log('user password', password);
+
+    Actions.push('home')
+  };
+
 
 	render() {
 		return(
 			<View style={styles.container}>
-				<Logo/>
-				<Form type="Login"/>
+				<Logo />
+				<Form type="Login" onData={this.Login}/>
 				<View style={styles.signupTextCont}>
 					<Text style={styles.signupText}>Don't have an account yet?</Text>
 					<TouchableOpacity onPress={this.signup}><Text style={styles.signupButton}> Signup</Text></TouchableOpacity>
 				</View>
-			</View>	
+			</View>
 			)
 	}
 }

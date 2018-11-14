@@ -12,7 +12,7 @@ import Form from '../components/Form';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class Signup extends Component<{}> {
+export default class Signup extends Component {
 
   goBack() {
       Actions.pop();
@@ -27,7 +27,7 @@ export default class Signup extends Component<{}> {
 					<Text style={styles.signupText}>Already have an account?</Text>
 					<TouchableOpacity onPress={this.goBack}><Text style={styles.signupButton}> Sign in</Text></TouchableOpacity>
 				</View>
-			</View>	
+			</View>
 			)
 	}
 }

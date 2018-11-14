@@ -3,16 +3,16 @@ import {
   StyleSheet,
   Text,
   View,
-   Image 
+   Image
 } from 'react-native';
 
-export default class Logo extends Component<{}> {
+export default class Logo extends Component {
 	render(){
 		return(
 			<View style={styles.container}>
-				<Image  style={{width:40, height: 70}}
-          			source={require('../images/logo.png')}/>
-          		<Text style={styles.logoText}>Welcome to My app.</Text>	
+				<Image  style={{width:70, height: 70}}
+          			source={require('../images/appLogo.png')}/>
+          		<Text style={styles.logoText}>Welcome to My app.</Text>
   			</View>
 			)
 	}
