@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import {
   StyleSheet,
@@ -7,39 +7,52 @@ import {
   StatusBar,
   TouchableOpacity,
   TextInput,
-  Alert
+  Alert,
 } from 'react-native';
 
 import {
-  Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Row, Col
+  Container,
+  Header,
+  Content,
+  List,
+  ListItem,
+  Left,
+  Body,
+  Right,
+  Thumbnail,
+  Text,
+  Row,
+  Col,
 } from 'native-base';
 
-import ContactItem from '../components/ContactItem'
+import ContactItem from '../components/ContactItem';
 import {Actions} from 'react-native-router-flux';
 
-
 export default class Home extends React.Component {
-
-  pushAlert() {
-    Alert.alert(
+  pushAlert () {
+    Alert.alert (
       'Success!',
       'Push Notification was sent successfully.',
       [
-        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-        { text: 'OK', onPress: () => console.log('OK Pressed') },
+        {
+          text: 'Cancel',
+          onPress: () => console.log ('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => console.log ('OK Pressed')},
       ],
-      { cancelable: false }
-    )
+      {cancelable: false}
+    );
   }
 
-  getPersons() {
-    Actions.push('contactlist');
+  getPersons () {
+    Actions.push ('contactlist');
   }
 
-  render() {
+  render () {
     return (
       <View style={styles.container}>
-        <View style={styles.contentView} >
+        <View style={styles.contentView}>
           <Text>
             Web Content from Backend Server
           </Text>
@@ -49,19 +62,20 @@ export default class Home extends React.Component {
           <Container>
             <Content>
               <List>
-                <ContactItem
-                  title="Paul Lelsjkd"
-                  note="7894564321"
-                  thumbnail=""
-                />
-                <ContactItem
-                  title="Happy Happy"
-                  note="123456489"
-                />
-                <ContactItem
-                  title="John Doe"
-                  note="5643786453"
-                />
+                <ListItem avatar>
+                  <Left>
+                    <Thumbnail source={require('../images/12.png')} />
+                  </Left>
+                  <Body>
+                    <Text>Kumar Pratik</Text>
+                    <Text note>
+                      Doing what you like will always keep you happy . .
+                    </Text>
+                  </Body>
+                  <Right>
+                    <Text note>3:43 pm</Text>
+                  </Right>
+                </ListItem>
               </List>
             </Content>
           </Container>
@@ -72,20 +86,24 @@ export default class Home extends React.Component {
         </View>
 
         <View style={styles.pushView}>
-          <TextInput style={{ fontSize: 20 }}>pushView</TextInput>
-          <Button style={{ position: 'absolute', left: 0 }} title="PUSH" onPress={this.pushAlert} />
+          <TextInput style={{fontSize: 20}}>pushView</TextInput>
+          <Button
+            style={{position: 'absolute', left: 0}}
+            title="PUSH"
+            onPress={this.pushAlert}
+          />
         </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
   container: {
     backgroundColor: '#455a64',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   contentView: {
     flex: 1,
@@ -107,7 +125,6 @@ const styles = StyleSheet.create({
   pushView: {
     flex: 1,
     width: '100%',
-
     backgroundColor: '#055a64',
-  }
+  },
 });

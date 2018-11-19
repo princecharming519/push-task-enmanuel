@@ -22,7 +22,10 @@ export default class Login extends Component {
     console.log('username--home==>', username);
     console.log('user password', password);
 
-    Actions.push('home')
+    //if(username == "apollo519@outlook.com" && password == "gmlakd"){
+      Actions.push('home')
+    //}
+    console.log('login failed');
   };
 
 
